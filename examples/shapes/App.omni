@@ -1,0 +1,41 @@
+<script>
+  const shapes = signal([
+    { type: "circle", x: 200, y: 200, radius: 40, fill: "#e74c3c" },
+    { type: "circle", x: 400, y: 200, radius: 60, fill: "#3498db" },
+    { type: "circle", x: 600, y: 200, radius: 50, fill: "#2ecc71" },
+    { type: "rectangle", x: 200, y: 400, width: 100, height: 60, fill: "#9b59b6" },
+    { type: "rectangle", x: 400, y: 400, width: 80, height: 80, fill: "#f39c12" },
+    { type: "rectangle", x: 600, y: 400, width: 120, height: 50, fill: "#1abc9c" },
+  ]);
+</script>
+
+<canvas width={800} height={600} background="#1a1a2e">
+  <!-- Title -->
+  <text x={400} y={50} content="Shape Gallery" fill="#ffffff" />
+  
+  <!-- Circles row -->
+  <circle x={200} y={200} radius={40} fill="#e74c3c" />
+  <circle x={400} y={200} radius={60} fill="#3498db" />
+  <circle x={600} y={200} radius={50} fill="#2ecc71" />
+  
+  <!-- Rectangles row -->
+  <rectangle x={200} y={400} width={100} height={60} fill="#9b59b6" />
+  <rectangle x={400} y={400} width={80} height={80} fill="#f39c12" />
+  <rectangle x={600} y={400} width={120} height={50} fill="#1abc9c" />
+  
+  <!-- Labels -->
+  <text x={200} y={280} content="Red Circle" fill="#888888" />
+  <text x={400} y={280} content="Blue Circle" fill="#888888" />
+  <text x={600} y={280} content="Green Circle" fill="#888888" />
+  
+  <text x={200} y={460} content="Purple Rect" fill="#888888" />
+  <text x={400} y={460} content="Orange Rect" fill="#888888" />
+  <text x={600} y={460} content="Teal Rect" fill="#888888" />
+</canvas>
+
+<style>
+  text {
+    font-size: 14px;
+    text-anchor: middle;
+  }
+</style>

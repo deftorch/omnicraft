@@ -1,0 +1,72 @@
+# =========================
+# Rust / Cargo
+# =========================
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# =========================
+# WebAssembly (WASM)
+# =========================
+/dist/
+**/pkg/
+*.wasm
+
+# =========================
+# IDE & Editor
+# =========================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# =========================
+# Node.js (jika ada)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# =========================
+# Build & Temp Files
+# =========================
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# =========================
+# Test & Coverage
+# =========================
+*.profraw
+*.profdata
+coverage/
+tarpaulin-report.html
+
+# =========================
+# Project Specific
+# =========================
+/my-test-project/
+/testsure/target/
+/testsure/public/pkg/

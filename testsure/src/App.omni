@@ -1,0 +1,4 @@
+<canvas width={800} height={600} background="#1a1a2e">
+  <circle x={400} y={300} radius={50} fill="#00d4ff" />
+  <text x={400} y={400} content="Hello, WASM!" fill="#ffffff" />
+</canvas>

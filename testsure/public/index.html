@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>testsure</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #0f0f1a;
+    }
+
+    #canvas {
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  <script type="module">
+    import init from './pkg/testsure.js';
+    import init from './pkg/testsure.js';
+    console.log("Starting WASM init...");
+    init()
+      .then(() => console.log("WASM Init success"))
+      .catch(e => console.error("WASM Init failed:", e));
+  </script>
+</body>
+
+</html>

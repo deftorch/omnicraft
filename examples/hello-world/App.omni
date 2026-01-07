@@ -1,0 +1,7 @@
+<canvas width={800} height={600} background="#1a1a2e">
+  <!-- Simple circle -->
+  <circle x={400} y={300} radius={50} fill="#00d4ff" />
+  
+  <!-- Welcome text -->
+  <text x={400} y={420} content="Hello, OmniCraft!" fill="#ffffff" />
+</canvas>

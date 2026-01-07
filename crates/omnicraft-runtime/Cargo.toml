@@ -1,0 +1,42 @@
+[package]
+name = "omnicraft-runtime"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "OmniCraft runtime: ECS + Reactivity + Rendering"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# ECS
+bevy_ecs = { workspace = true }
+
+# Math
+glam = { workspace = true }
+
+# Layout
+taffy = { workspace = true }
+
+# Rendering
+lyon = { workspace = true }
+
+# WASM
+wasm-bindgen = { workspace = true }
+wasm-bindgen-futures = { workspace = true }
+js-sys = { workspace = true }
+web-sys = { workspace = true }
+console_error_panic_hook = "0.1"
+
+# Serialization
+serde = { workspace = true }
+
+# Error handling
+thiserror = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+tracing-subscriber = { workspace = true, features = ["env-filter", "fmt"] }

@@ -1,0 +1,37 @@
+<script>
+  const count = signal(0);
+  const doubled = memo(() => count() * 2);
+  
+  function increment() {
+    count.set(count.get() + 1);
+  }
+  
+  function decrement() {
+    count.set(count.get() - 1);
+  }
+</script>
+
+<canvas width={800} height={600} background="#1a1a2e">
+  <!-- Counter display -->
+  <text x={400} y={200} content={`Count: ${count()}`} fill="#ffffff" />
+  <text x={400} y={250} content={`Doubled: ${doubled()}`} fill="#888888" />
+  
+  <!-- Decrement button -->
+  <group x={300} y={350}>
+    <rectangle width={80} height={40} fill="#e74c3c" @click={decrement} />
+    <text x={0} y={5} content="-" fill="#ffffff" />
+  </group>
+  
+  <!-- Increment button -->
+  <group x={500} y={350}>
+    <rectangle width={80} height={40} fill="#2ecc71" @click={increment} />
+    <text x={0} y={5} content="+" fill="#ffffff" />
+  </group>
+</canvas>
+
+<style>
+  text {
+    font-size: 24px;
+    text-anchor: middle;
+  }
+</style>

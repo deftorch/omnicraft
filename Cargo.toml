@@ -1,0 +1,66 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/omnicraft-compiler",
+    "crates/omnicraft-runtime",
+    "crates/omnicraft-cli",
+    "crates/omnicraft-lsp",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/omnicraft/omnicraft"
+authors = ["OmniCraft Team"]
+
+[workspace.dependencies]
+# Core ECS
+bevy_ecs = "0.17"
+
+# Math
+glam = { version = "0.30", features = ["serde"] }
+
+# Layout
+taffy = "0.9"
+
+# Rendering
+lyon = "1.0"
+
+# WASM
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+web-sys = { version = "0.3", features = [
+    "Window",
+    "Document",
+    "Element",
+    "HtmlCanvasElement",
+    "CanvasRenderingContext2d",
+    "Performance",
+    "console",
+] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Async
+tokio = { version = "1.49", features = ["rt-multi-thread", "macros", "fs", "sync", "time", "io-util", "io-std", "net"] }
+
+# CLI
+clap = { version = "4.5", features = ["derive"] }
+
+# File watching
+notify = "8.2"
+
+# Compiler
+logos = "0.16"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "2.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

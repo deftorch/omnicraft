@@ -1,0 +1,31 @@
+[package]
+name = "omnicraft-lsp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Language Server Protocol implementation for OmniCraft"
+
+[[bin]]
+name = "omnicraft-lsp"
+path = "src/main.rs"
+
+[dependencies]
+# LSP
+tower-lsp = "0.20"
+
+# Async
+tokio = { workspace = true }
+
+# Compiler
+omnicraft-compiler = { path = "../omnicraft-compiler" }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
