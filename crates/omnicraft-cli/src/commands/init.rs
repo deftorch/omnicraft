@@ -35,6 +35,10 @@ pub async fn run(name: String, template: String) -> Result<()> {
     let config = generate_config(&name);
     tokio::fs::write(format!("{}/omnicraft.config.json", name), config).await?;
 
+    // Create Cargo.toml
+    let cargo_toml = generate_cargo_toml(&name);
+    tokio::fs::write(format!("{}/Cargo.toml", name), cargo_toml).await?;
+
     // Create README
     let readme = generate_readme(&name);
     tokio::fs::write(format!("{}/README.md", name), readme).await?;
@@ -135,6 +139,27 @@ fn generate_config(name: &str) -> String {
     "target": "wasm"
   }}
 }}
+"#,
+        name
+    )
+}
+
+fn generate_cargo_toml(name: &str) -> String {
+    format!(
+        r#"[package]
+name = "{}"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "dist/App.rs"
+
+[dependencies]
+wasm-bindgen = "0.2"
+omnicraft-runtime = "0.1"
+console_error_panic_hook = "0.1"
+tracing-wasm = "0.2"
 "#,
         name
     )
