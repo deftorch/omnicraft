@@ -31,7 +31,7 @@ serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 
 # Web Server
-axum = { version = "0.7", features = ["ws"] }
+axum = { version = "0.8", features = ["ws"] }
 tower-http = { version = "0.5", features = ["fs", "cors", "trace"] }
 futures = "0.3"
 wasm-bindgen-cli-support = "0.2"
