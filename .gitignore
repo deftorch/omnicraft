@@ -70,3 +70,4 @@ tarpaulin-report.html
 /my-test-project/
 /testsure/target/
 /testsure/public/pkg/
+verify_fix/target/
