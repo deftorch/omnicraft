@@ -83,6 +83,7 @@ const TEMPLATE_COUNTER: &str = r##"<script>
 "##;
 
 fn generate_index_html(name: &str) -> String {
+    let wasm_file = name.replace("-", "_");
     format!(
         r#"<!DOCTYPE html>
 <html lang="en">
@@ -112,13 +113,13 @@ fn generate_index_html(name: &str) -> String {
 <body>
   <canvas id="canvas" width="800" height="600"></canvas>
   <script type="module">
-    import init from './pkg/app.js';
-    init();
+    import init from './pkg/{}.js';
+    init('./pkg/{}_bg.wasm');
   </script>
 </body>
 </html>
 "#,
-        name
+        name, wasm_file
     )
 }
 

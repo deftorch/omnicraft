@@ -72,3 +72,6 @@ tarpaulin-report.html
 /testsure/public/pkg/
 test_project/target/
 new_test_project/target/
+screenshot_test/target/
+debug_test/target/
+debug_test/target/

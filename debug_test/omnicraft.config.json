@@ -1,0 +1,15 @@
+{
+  "name": "debug_test",
+  "version": "0.1.0",
+  "entry": "src/App.omni",
+  "output": "dist",
+  "dev": {
+    "port": 3000,
+    "open": true
+  },
+  "build": {
+    "minify": true,
+    "sourcemap": true,
+    "target": "wasm"
+  }
+}
