@@ -1,1 +1,0 @@
-error: package(s) `omnicraft-cli` not found in workspace `/home/deftorch/Project/omnicraft/testsure`
