@@ -119,7 +119,7 @@ fn generate_index_html(name: &str) -> String {
 </body>
 </html>
 "#,
-        name, wasm_file
+        name, wasm_file, wasm_file
     )
 }
 
