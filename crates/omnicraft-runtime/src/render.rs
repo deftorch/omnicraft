@@ -38,6 +38,8 @@ pub enum RenderCommand {
     Rect { x: f32, y: f32, width: f32, height: f32 },
     Fill { color: Color },
     Stroke { color: Color, width: f32 },
+    SetFillStyle { color: Color },
+    SetStrokeStyle { color: Color, width: f32 },
     FillText { text: String, x: f32, y: f32 },
     SetFont { font: String },
     Save,
@@ -266,12 +268,12 @@ impl Renderer {
         queue.push(RenderCommand::SetFont { font });
 
         if let Some(fill) = style.fill {
+            queue.push(RenderCommand::SetFillStyle { color: fill });
             queue.push(RenderCommand::FillText {
                 text: text.text.clone(),
                 x: 0.0,
                 y: 0.0,
             });
-            let _ = fill; // Color is applied via fillStyle before fillText
         }
     }
 }
@@ -348,6 +350,13 @@ pub mod wasm {
                     self.ctx.set_stroke_style(&JsValue::from_str(&color.to_css()));
                     self.ctx.set_line_width(*width as f64);
                     self.ctx.stroke();
+                }
+                RenderCommand::SetFillStyle { color } => {
+                    self.ctx.set_fill_style(&JsValue::from_str(&color.to_css()));
+                }
+                RenderCommand::SetStrokeStyle { color, width } => {
+                    self.ctx.set_stroke_style(&JsValue::from_str(&color.to_css()));
+                    self.ctx.set_line_width(*width as f64);
                 }
                 RenderCommand::FillText { text, x, y } => {
                     let _ = self.ctx.fill_text(text, *x as f64, *y as f64);
