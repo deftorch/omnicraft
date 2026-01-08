@@ -178,6 +178,20 @@ impl RustGenerator {
             let h = self.expr_to_rust(height);
             self.emit_line(&format!("world.set_canvas_height({});", h))?;
         }
+        if let Some(background) = &component.template.canvas.background {
+            let bg = self.expr_to_rust(background);
+            // If it's a string literal, wrap in Color::parse
+            // If it's an identifier/expression, assume it returns Color (TODO: better type checking)
+            // But expr_to_rust returns Rust code string.
+            // If the AST expression was a Literal::String, expr_to_rust returned `"..."`.
+            // We need to check if we should parse it.
+            // A simple heuristic: if it starts with quote, use Color::parse.
+            if bg.starts_with('"') {
+                self.emit_line(&format!("world.set_canvas_background(Color::parse({}));", bg))?;
+            } else {
+                self.emit_line(&format!("world.set_canvas_background({});", bg))?;
+            }
+        }
         writeln!(self.output)?;
 
         // Create entities for each element
