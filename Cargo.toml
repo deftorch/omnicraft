@@ -16,7 +16,7 @@ authors = ["OmniCraft Team"]
 
 [workspace.dependencies]
 # Core ECS
-bevy_ecs = "0.17"
+bevy_ecs = "0.18"
 
 # Math
 glam = { version = "0.30", features = ["serde"] }
